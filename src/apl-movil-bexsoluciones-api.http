@@ -1,0 +1,6 @@
+@apl_movil_bexsoluciones_api_HostAddress = http://localhost:5202
+
+GET {{apl_movil_bexsoluciones_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
