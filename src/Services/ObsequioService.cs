@@ -8,10 +8,17 @@ public class ObsequioService
 {
 
     private readonly IObsequioRepository _repository;
+    private readonly ILogger<ObsequioService> _logger;
 
-    public ObsequioService(IObsequioRepository repository)
+    public ObsequioService(IObsequioRepository repository, ILogger<ObsequioService> logger)
     {
         _repository = repository;
+        _logger = logger;
+    }
+    public async Task<IEnumerable<ObsequioDto>> ObtenerObsequios()
+    {
+        var data = await _repository.GetAllObsequio();
+        return data;
     }
 
 }

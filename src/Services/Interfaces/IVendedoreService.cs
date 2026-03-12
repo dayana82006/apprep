@@ -1,8 +1,8 @@
 ﻿using AplMovilBexsolucionesApi.Models.DTOs;
 namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
-    public interface IVendedoreService
+    public interface IVendedorService
     {
-        Task<IEnumerable<VendedorDto>> ObtenerVendedores();
+        Task<IEnumerable<VendedorDto>> ObtenerVendedor();
     }
 }

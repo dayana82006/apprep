@@ -7,14 +7,16 @@ namespace AplMovilBexsolucionesApi.Services;
 public class VendedorService : IVendedorService
 {
     private readonly IVendedorRepository _repository;
+    private readonly ILogger _logger;
 
-    public VendedorService(IVendedorRepository repository)
+    public VendedorService(IVendedorRepository repository, ILogger logger)
     {
         _repository = repository;
+        _logger = logger;
     }
 
-    public async Task<IEnumerable<VendedorDto>> GetAll()
+    public async Task<IEnumerable<VendedorDto>>ObtenerVendedor()
     {
-        return await _repository.GetAll();
+        return await _repository.GetAllVendedor();
     }
 }

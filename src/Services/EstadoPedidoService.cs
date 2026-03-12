@@ -8,10 +8,12 @@ public class EstadoPedidoService : IEstadoPedidoService
 {
 
     private readonly IEstadoPedidoRepository _repository;
+    private readonly ILogger<EstadoPedidoService> _logger;
 
-    public EstadoPedidoService(IEstadoPedidoRepository repository)
+    public EstadoPedidoService(IEstadoPedidoRepository repository, ILogger<EstadoPedidoService> logger)
     {
         _repository = repository;
+        _logger = logger;
     }
     public async Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido()
     {

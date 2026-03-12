@@ -4,14 +4,20 @@ using AplMovilBexsolucionesApi.Models.DTOs;
 
 namespace AplMovilBexsolucionesApi.Services;
 
-public class PrecioService
+public class PrecioService : IPrecioService
 {
 
     private readonly IPrecioRepository _repository;
+    private readonly ILogger _logger;
 
-    public PrecioService(IPrecioRepository repository)
+    public PrecioService(IPrecioRepository repository, ILogger<PrecioService> logger)
     {
         _repository = repository;
+        _logger = logger;
     }
-
+    async Task<IEnumerable<PrecioDto>> IPrecioService.ObtenerPrecios()
+    {
+        var data = await _repository.GetAllPrecio();
+        return data;
+    }
 }
