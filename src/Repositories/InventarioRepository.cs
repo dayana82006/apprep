@@ -17,9 +17,11 @@ public class InventarioRepository : IInventarioRepository
     }
     public async Task<List<InventarioDto>> GetAll()
     {
+        const string sql = @""
 
+        using var connection = _contex.CreateConnection();
+        _logger.LogInformation("Consultando inventario");
+        var result = (await connection.QueryAsync<InventarioDto>(sql)).ToList();
+        return result;
     }
-
-
-
 }
