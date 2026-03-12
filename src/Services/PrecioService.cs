@@ -15,9 +15,9 @@ public class PrecioService : IPrecioService
         _repository = repository;
         _logger = logger;
     }
-    async Task<IEnumerable<PrecioDto>> IPrecioService.ObtenerPrecios()
+     async Task<IEnumerable<PrecioDto>> IPrecioService.ObtenerPrecios(int numpag)
     {
-        var data = await _repository.GetAllPrecio();
+        var data = await _repository.GetAllPrecio(numpag);
         return data;
     }
 }

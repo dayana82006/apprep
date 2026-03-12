@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IVendedorRepository
 {
-    Task<List<VendedorDto>> GetAllVendedor();
+    Task<List<VendedorDto>> GetAllVendedor(int numpag);
 }

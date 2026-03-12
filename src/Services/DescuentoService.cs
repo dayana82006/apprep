@@ -16,9 +16,9 @@ public class DescuentoService : IDescuentoService
         _logger = logger;
     }
 
-    public async Task<IEnumerable<DescuentoDto>> ObtenerDescuentos()
+    public async Task<IEnumerable<DescuentoDto>> ObtenerDescuentos(int numpag)
     {
-        var data = await _repository.GetAllDescuento();
+        var data = await _repository.GetAllDescuento(numpag);
         return data;
     }
 

@@ -15,7 +15,7 @@ public class VendedorRepository : IVendedorRepository
         _context = context;
         _logger = logger;
     }
-    public async Task<List<VendedorDto>> GetAllVendedor()
+    public async Task<List<VendedorDto>> GetAllVendedor(int numpag)
     {
         const string sql = @"SELECT * FROM Vendedor";
 
@@ -23,7 +23,7 @@ public class VendedorRepository : IVendedorRepository
 
         _logger.LogInformation("Consultando Vendedors");
 
-        var result = (await connection.QueryAsync<VendedorDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<VendedorDto>(sql, new { numpag = numpag })).ToList();
 
         return result;
     }

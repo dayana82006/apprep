@@ -3,6 +3,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IProductoService
     {
-        Task<IEnumerable<ProductoDto>> ObtenerProductos();
+        Task<IEnumerable<ProductoDto>> ObtenerProductos(int numpag);
     }
 }

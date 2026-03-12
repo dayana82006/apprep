@@ -15,9 +15,9 @@ public class ClienteService : IClienteService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<ClienteDto>> ObtenerClientes()
+    public async Task<IEnumerable<ClienteDto>> ObtenerClientes(int numpag)
     {
-        var data = await _repository.GetAllClientes();
+        var data = await _repository.GetAllClientes(numpag);
         return data;
     }
 

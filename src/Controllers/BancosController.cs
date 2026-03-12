@@ -15,9 +15,9 @@ namespace AplMovilBexsolucionesApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int numpag)
         {
-            var result = await _service.ObtenerBancos();
+            var result = await _service.ObtenerBancos(numpag);
             return Ok(result);
         }
     }

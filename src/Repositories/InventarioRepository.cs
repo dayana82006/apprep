@@ -16,14 +16,19 @@ public class InventarioRepository : IInventarioRepository
         _contex = contex;
         _logger = logger;
     }
-    public async Task<List<InventarioDto>> GetAll()
+    public async Task<List<InventarioDto>> GetAll(int numpag)
     {
 
-        const string sql = @"";
+        const string sql = @"SELECT 
+                            BodegaId AS codbodega, 
+                            null AS iva,
+                            ProductoId AS codproducto,
+                            Existencia AS cantidadinventario
+                            FROM ProductosBodegas";
 
         using var connection = _contex.CreateConnection();
         _logger.LogInformation("Consultando inventario");
-        var result = (await connection.QueryAsync<InventarioDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<InventarioDto>(sql, new { numpag = numpag })).ToList();
         return result;
     }
 }

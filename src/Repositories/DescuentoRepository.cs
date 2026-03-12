@@ -15,13 +15,13 @@ public class DescuentoRepository : IDescuentoRepository
         _context = context;
         _logger = logger;
     }
-    public async Task<List<DescuentoDto>> GetAllDescuento()
+    public async Task<List<DescuentoDto>> GetAllDescuento(int numpag)
     {
         const string sql = @"";
 
         using var connection = _context.CreateConnection();
         _logger.LogInformation("Consultando Descuento");
-        var result = await connection.QueryAsync<DescuentoDto>(sql);
+        var result = await connection.QueryAsync<DescuentoDto>(sql, new { numpag = numpag });
         return result.ToList();
     }
 

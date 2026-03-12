@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IProductoRepository
 {
-    Task<List<ProductoDto>> GetAllProducto();
+    Task<List<ProductoDto>> GetAllProducto(int numpag);
 }

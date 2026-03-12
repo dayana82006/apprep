@@ -4,7 +4,7 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IAmovilService
     {
-        Task<IEnumerable<AmovilDto>> GetAmovil();
+        Task<IEnumerable<AmovilDto>> GetAmovil(int numpag);
     }
 }
  

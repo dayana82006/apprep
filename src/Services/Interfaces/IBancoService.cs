@@ -4,6 +4,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IBancoService
     {
-        Task<IEnumerable<BancoDto>> ObtenerBancos();
+        Task<IEnumerable<BancoDto>> ObtenerBancos(int numpag);
     }
 }

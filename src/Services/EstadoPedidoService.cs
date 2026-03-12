@@ -15,9 +15,9 @@ public class EstadoPedidoService : IEstadoPedidoService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido()
+    public async Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido(int numpag)
     {
-        var data = await _repository.GetAll();
+        var data = await _repository.GetAll(numpag);
         return data;
     }
 }

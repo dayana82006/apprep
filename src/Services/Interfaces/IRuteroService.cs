@@ -3,6 +3,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IRuteroService
     {
-        Task<IEnumerable<RuteroDto>> ObtenerRuteros();
+        Task<IEnumerable<RuteroDto>> ObtenerRuteros(int numpag);
     }
 }

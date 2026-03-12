@@ -5,7 +5,7 @@ namespace AplMovilBexsolucionesApi.Models.DTOs;
 public class ClienteDto
 {
     public string Codigo { get; set; }
-    public char Dv {  get; set; }
+    public int Dv {  get; set; }
     public string Sucursal { get; set; }
     public string RazonSocial { get; set; }
     public string NombreContacto { get; set; }

@@ -20,7 +20,7 @@ public class RuteroRepository : IRuteroRepository
 
 
 
-    public async Task<List<RuteroDto>> GetAllRutero()
+    public async Task<List<RuteroDto>> GetAllRutero(int numpag)
     {
         const string sql = @"SELECT * FROM Rutero";
 
@@ -28,7 +28,7 @@ public class RuteroRepository : IRuteroRepository
 
         _logger.LogInformation("Consultando Ruteros");
 
-        var result = (await connection.QueryAsync<RuteroDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<RuteroDto>(sql, new { numpag = numpag })).ToList();
 
 
         return result;

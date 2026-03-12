@@ -4,6 +4,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface ICarteraService
     {
-        Task<IEnumerable<CarteraDto>> ObtenerCartera();
+        Task<IEnumerable<CarteraDto>> ObtenerCartera(int numpag);
     }
 }

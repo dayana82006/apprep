@@ -15,8 +15,8 @@ public class VendedorService : IVendedorService
         _logger = logger;
     }
 
-    public async Task<IEnumerable<VendedorDto>>ObtenerVendedor()
+    public async Task<IEnumerable<VendedorDto>>ObtenerVendedor(int numpag)
     {
-        return await _repository.GetAllVendedor();
+        return await _repository.GetAllVendedor(numpag);
     }
 }

@@ -16,7 +16,7 @@ public class PrecioRepository : IPrecioRepository
         _logger = logger;
     }
 
-    public async Task<List<PrecioDto>> GetAllPrecio()
+    public async Task<List<PrecioDto>> GetAllPrecio(int numpag)
     {
         const string sql = @"";
 
@@ -24,7 +24,7 @@ public class PrecioRepository : IPrecioRepository
 
         _logger.LogInformation("Consultando Precios");
 
-        var result = (await connection.QueryAsync<PrecioDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<PrecioDto>(sql, new { numpag = numpag })).ToList();
 
         return result;
     }

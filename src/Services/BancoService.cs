@@ -15,9 +15,9 @@ public class BancoService : IBancoService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<BancoDto>> ObtenerBancos()
+    public async Task<IEnumerable<BancoDto>> ObtenerBancos(int numpag)
     {
-        var data = await _repository.GetBanco();
+        var data = await _repository.GetBanco(numpag);
         return data;
     }
 

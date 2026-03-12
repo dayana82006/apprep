@@ -16,25 +16,16 @@ public class AmovilRepository : IAmovilRepository
         _logger = logger;
     }
 
-    public async Task<List<AmovilDto>> GetAmovil()
+    public async Task<List<AmovilDto>> GetAmovil(int numpag)
     {
         const string sql = @"";
 
         using var connection = _context.CreateConnection();
         _logger.LogInformation("Consultando amoviles");
 
-        var result = (await connection.QueryAsync<AmovilDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<AmovilDto>(sql, new { numpag = numpag })).ToList();
         return result;
     }
 
-    public async Task<List<string>> GetAmovilPipe()
-    {
-        var amoviles = await GetAmovil();
-
-        var pipeList = amoviles
-            .Select(a => $"{a.NitCliente}|{a.SucCliente}|{a.Anio}|{a.Mes}|{a.CodVendedor}|{a.Valor}")
-            .ToList();
-
-        return pipeList;
-    }
+  
 }

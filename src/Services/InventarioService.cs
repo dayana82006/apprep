@@ -15,9 +15,9 @@ public class InventarioService : IInventarioService
         _repository = repository;
         _logger = logger;
     }
-     async Task<IEnumerable<InventarioDto>> IInventarioService.ObtenerInventario()
+     async Task<IEnumerable<InventarioDto>> IInventarioService.ObtenerInventario(int numpag)
     {
-        var data = await _repository.GetAll();
+        var data = await _repository.GetAll(numpag);
         return data;
     }
 }

@@ -15,9 +15,9 @@ public class CarteraService : ICarteraService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<CarteraDto>> ObtenerCartera()
+    public async Task<IEnumerable<CarteraDto>> ObtenerCartera(int numpag)
     {
-        var data = await _repository.GetAllCartera();
+        var data = await _repository.GetAllCartera(numpag);
         return data;
     }
 }

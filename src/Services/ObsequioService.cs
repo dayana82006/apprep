@@ -15,9 +15,9 @@ public class ObsequioService : IObsequioService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<ObsequioDto>> ObtenerObsequios()
+    public async Task<IEnumerable<ObsequioDto>> ObtenerObsequios(int numpag)
     {
-        var data = await _repository.GetAllObsequio();
+        var data = await _repository.GetAllObsequio(numpag);
         return data;
     }
 

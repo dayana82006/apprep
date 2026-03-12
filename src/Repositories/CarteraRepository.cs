@@ -15,13 +15,13 @@ public class CarteraRepository : ICarteraRepository
         _context = context;
         _logger = logger;
     }
-    public async Task<List<CarteraDto>> GetAllCartera()
+    public async Task<List<CarteraDto>> GetAllCartera(int numpag)
     {
         const string sql = @"";
 
         using var connection = _context.CreateConnection();
         _logger .LogInformation("Consultando cartera");
-        var result = (await connection.QueryAsync<CarteraDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<CarteraDto>(sql, new { numpag = numpag })).ToList();
         return result;
     }
 

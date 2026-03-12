@@ -14,9 +14,9 @@ public class RuteroService : IRuteroService
         _repository = repository;
         _logger = logger;
     }
-    public async Task<IEnumerable<RuteroDto>> ObtenerRuteros()
+    public async Task<IEnumerable<RuteroDto>> ObtenerRuteros(int numpag)
     {
-        var data = await _repository.GetAllRutero();
+        var data = await _repository.GetAllRutero(numpag);
         return data;
     }
 

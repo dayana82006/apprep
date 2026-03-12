@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IObsequioRepository
 {
-    Task<List<ObsequioDto>> GetAllObsequio();
+    Task<List<ObsequioDto>> GetAllObsequio(int numpag);
 }

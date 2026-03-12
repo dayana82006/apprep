@@ -15,9 +15,9 @@ public class AmovilService : IAmovilService
         _logger = logger;
     }
 
-    public async Task<IEnumerable<AmovilDto>> GetAmovil()
+    public async Task<IEnumerable<AmovilDto>> GetAmovil(int numpag)
     {
-        var data = await _repository.GetAmovil();
+        var data = await _repository.GetAmovil(numpag);
         return data;
     }
 }

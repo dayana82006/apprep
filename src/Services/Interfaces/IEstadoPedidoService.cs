@@ -3,6 +3,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IEstadoPedidoService
     {
-        Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido();
+        Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido(int numpag);
     }
 }

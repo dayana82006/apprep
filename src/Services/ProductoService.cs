@@ -15,9 +15,9 @@ public class ProductoService : IProductoService
         _repository = repository;
         _logger = logger;
     }
-    async Task<IEnumerable<ProductoDto>> IProductoService.ObtenerProductos()
+    async Task<IEnumerable<ProductoDto>> IProductoService.ObtenerProductos(int numpag)
     {
-        var data = await _repository.GetAllProducto();
+        var data = await _repository.GetAllProducto(numpag);
         return data;
     }
 

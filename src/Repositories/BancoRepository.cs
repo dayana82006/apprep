@@ -16,7 +16,7 @@ namespace AplMovilBexsolucionesApi.Repositories
             _logger = logger;
         }
 
-        public async Task<List<BancoDto>> GetBanco()
+        public async Task<List<BancoDto>> GetBanco(int numpag)
         {
             const string sql = @"
                
@@ -25,7 +25,7 @@ namespace AplMovilBexsolucionesApi.Repositories
             using var connection = _context.CreateConnection();
             _logger.LogInformation("Consultando bancos...");
 
-            var result = (await connection.QueryAsync<BancoDto>(sql)).ToList();
+            var result = (await connection.QueryAsync<BancoDto>(sql, new { numpag = numpag })).ToList();
             return result;
         }
 

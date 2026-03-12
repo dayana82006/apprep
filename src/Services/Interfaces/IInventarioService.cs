@@ -3,6 +3,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IInventarioService
     {
-        Task<IEnumerable<InventarioDto>> ObtenerInventario();
+        Task<IEnumerable<InventarioDto>> ObtenerInventario(int numpag);
     }
 }

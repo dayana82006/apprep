@@ -4,6 +4,6 @@ namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IDescuentoService
     {
-     Task<IEnumerable<DescuentoDto>> ObtenerDescuentos();
+     Task<IEnumerable<DescuentoDto>> ObtenerDescuentos(int numpag);
     }
 }

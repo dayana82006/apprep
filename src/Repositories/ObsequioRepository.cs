@@ -14,7 +14,7 @@ public class ObsequioRepository : IObsequioRepository
         _logger = logger;
     }
 
-    public async Task<List<ObsequioDto>> GetAllObsequio()
+    public async Task<List<ObsequioDto>> GetAllObsequio(int numpag)
     {
         const string sql = @"";
 
@@ -23,7 +23,7 @@ public class ObsequioRepository : IObsequioRepository
 
         _logger.LogInformation("Consultando obsequios");
 
-        var result = (await connection.QueryAsync<ObsequioDto>(sql)).ToList();
+        var result = (await connection.QueryAsync<ObsequioDto>(sql, new { numpag = numpag })).ToList();
 
         return result;
     }

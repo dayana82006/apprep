@@ -17,7 +17,7 @@ public class EstadoPedidoRepository : IEstadoPedidoRepository
         _logger = logger;
     }
 
-    public async Task<List<EstadoPedidoDto>> GetAll()
+    public async Task<List<EstadoPedidoDto>> GetAll(int numpag)
     {
         const string sql = @"SELECT * FROM estado_pedido";
 
@@ -25,7 +25,7 @@ public class EstadoPedidoRepository : IEstadoPedidoRepository
 
         _logger.LogInformation("Consultando estados de pedidos");
 
-        var result = await connection.QueryAsync<EstadoPedidoDto>(sql);
+        var result = await connection.QueryAsync<EstadoPedidoDto>(sql, new { numpag = numpag });
 
         return result.ToList();
     }
