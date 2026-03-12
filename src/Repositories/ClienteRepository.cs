@@ -1,6 +1,7 @@
-using AplMovilBexsolucionesApi.Repositories.Interfaces;
-using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Data;
+using AplMovilBexsolucionesApi.Models.DTOs;
+using AplMovilBexsolucionesApi.Repositories.Interfaces;
+using Dapper;
 
 namespace AplMovilBexsolucionesApi.Repositories;
 
@@ -18,20 +19,11 @@ public class ClienteRepository : IClienteRepository
     {
         const string sql = @"";
         using var connection = _context.CreateConnection();
-        _logger.LogInformation("Consultando cliente con código {codigo}", codigo);
+        _logger.LogInformation("Consultando clientes");
 
-        var cliente = await connection.QueryFirstOrDefaultAsync<ClienteDto>(sql, new { Codigo = codigo });
+        var cliente = (await connection.QueryAsync<ClienteDto>(sql)).ToList();
         return cliente;
-        
-    public async Task<string> GetClientesPipe()
-    {
-        var cliente = await GetAllClientes();
-        return cliente.Select(a =>
-           $"{a.Codigo}|{a.Dv}|{a.Sucursal}|{a.RazonSocial}|{a.NombreContacto}|{a.Direccion}|{a.Telefono}|{a.CodListaPrecio}|{a.CondicionPago}|{a.Periocidad}|{a.CodVendedor}|{a.Cupo}|{a.CodigoGrupoPodcto}|{a.Email}|{a.TipoCliente}|{a.TipoCliente}|{a.Estado}"
-       ).ToList();
-    }
-
-
+       
 }
 
 }

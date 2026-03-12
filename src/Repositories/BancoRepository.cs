@@ -12,7 +12,7 @@ namespace AplMovilBexsolucionesApi.Repositories
 
         public BancoRepository(DapperContext context, ILogger<BancoRepository> logger)
         {
-            _context = context;
+            _context = context;s
             _logger = logger;
         }
 
@@ -29,13 +29,6 @@ namespace AplMovilBexsolucionesApi.Repositories
             return result;
         }
 
-        public async Task<List<string>> GetBancoPipe()
-        {
-            var bancos = await GetBanco();
-
-            return bancos.Select(a =>
-                $"{a.NomBanco}|{a.TipCuenta}|{a.NumCuenta}"
-            ).ToList();
-        }
+       
     }
 }

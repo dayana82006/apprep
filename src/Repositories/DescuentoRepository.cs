@@ -21,16 +21,9 @@ public class DescuentoRepository : IDescuentoRepository
 
         using var connection = _context.CreateConnection();
         _logger.LogInformation("Consultando Descuento");
-        var result = (await connection.QueryFirst<DescuentoDto>(sql)).ToList();
-        return result
+        var result = await connection.QueryAsync<DescuentoDto>(sql);
+        return result.ToList();
     }
 
-    public async Task<List<string>> GetDescuentoPipe(string id)
-    {
-        var Descuento = await GetAllDescuento();
-        return Descuento.Select(a =>
-         $"{a.ListDesc}|{a.CodPro}|{a.Cantidad}|{a.Descuento}"
-        ).ToList();
-    }
-
+   
 }

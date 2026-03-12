@@ -21,16 +21,8 @@ public class CarteraRepository : ICarteraRepository
 
         using var connection = _context.CreateConnection();
         _logger .LogInformation("Consultando cartera");
-        var result = (await connection.QueryFirst<CarteraDto>(sql)).ToList();
-        return result
-    }
-
-    public async Task<List<string>>GetCarteraPipe(string id)
-    {
-        var cartera = await GetAllCartera();
-        return cartera.Select(a =>
-         $"{a.NitCliente}|{a.Div}|{a.SucCliente}|{a.Prefijo}|{a.Documento}|{a.FecMov}|{a.Fechavenci}|{a.Valor}"
-        ).ToList();
+        var result = (await connection.QueryAsync<CarteraDto>(sql)).ToList();
+        return result;
     }
 
 }

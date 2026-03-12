@@ -4,6 +4,10 @@
     "\\src",
     "\\src\\Repositories"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\src\\Repositories\\InventarioRepository.cs",
+=======
+  "SelectedNode": "\\src\\Repositories\\RuteroRepository.cs",
+>>>>>>> c0fb9dd (Terminados los repositorios)
   "PreviewInSolutionExplorer": false
 }

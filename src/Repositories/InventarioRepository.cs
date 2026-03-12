@@ -1,6 +1,7 @@
-using AplMovilBexsolucionesApi.Repositories.Interfaces;
-using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Data;
+using AplMovilBexsolucionesApi.Models.DTOs;
+using AplMovilBexsolucionesApi.Repositories.Interfaces;
+using Dapper;
 using SQLitePCL;
 
 namespace AplMovilBexsolucionesApi.Repositories;
@@ -12,12 +13,16 @@ public class InventarioRepository : IInventarioRepository
     
     public InventarioRepository(DapperContext contex,  ILogger<InventarioRepository> logger)
     {
-        _context = contex;
+        _contex = contex;
         _logger = logger;
     }
     public async Task<List<InventarioDto>> GetAll()
     {
+<<<<<<< HEAD
         const string sql = @""
+=======
+        const string sql = @"";
+>>>>>>> c0fb9dd (Terminados los repositorios)
 
         using var connection = _contex.CreateConnection();
         _logger.LogInformation("Consultando inventario");
