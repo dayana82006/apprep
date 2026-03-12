@@ -1,11 +1,7 @@
-<<<<<<< HEAD
- using AplMovilBexsolucionesApi.Repositories.Interfaces;
-using AplMovilBexsolucionesApi.Models.DTOs;
-=======
->>>>>>> c0fb9dd (Terminados los repositorios)
-using AplMovilBexsolucionesApi.Data;
-using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
+using AplMovilBexsolucionesApi.Models.DTOs;
+
+using AplMovilBexsolucionesApi.Data;
 using Dapper;
 
 namespace AplMovilBexsolucionesApi.Repositories;

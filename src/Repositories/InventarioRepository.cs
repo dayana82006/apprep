@@ -18,11 +18,8 @@ public class InventarioRepository : IInventarioRepository
     }
     public async Task<List<InventarioDto>> GetAll()
     {
-<<<<<<< HEAD
-        const string sql = @""
-=======
+
         const string sql = @"";
->>>>>>> c0fb9dd (Terminados los repositorios)
 
         using var connection = _contex.CreateConnection();
         _logger.LogInformation("Consultando inventario");
