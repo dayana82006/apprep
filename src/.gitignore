@@ -13,11 +13,13 @@
 x64/
 [Bb]in/
 [Oo]bj/
-
+.vs/
+*.user
+*.suo
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
-*.vs
+
 *_i.c
 *_p.c
 *_i.h
