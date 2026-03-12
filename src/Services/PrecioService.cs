@@ -1,4 +1,5 @@
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 using AplMovilBexsolucionesApi.Models.DTOs;
 
 namespace AplMovilBexsolucionesApi.Services;

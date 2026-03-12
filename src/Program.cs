@@ -1,16 +1,18 @@
+using apl_movil_bexsoluciones_api.Services.Interfaces;
 using AplMovilBexsolucionesApi.Data;
 using AplMovilBexsolucionesApi.Repositories;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
+using AplMovilBexsolucionesApi.Services;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
+builder.Services.AddSingleton<SqliteContext>();
 builder.Services.AddScoped<DapperContext>();
 
 builder.Services.AddScoped<IAmovilRepository, AmovilRepository>();
@@ -21,10 +23,23 @@ builder.Services.AddScoped<IDescuentoRepository, DescuentoRepository>();
 builder.Services.AddScoped<IEstadoPedidoRepository, EstadoPedidoRepository>();
 builder.Services.AddScoped<IInventarioRepository, InventarioRepository>();
 builder.Services.AddScoped<IObsequioRepository, ObsequioRepository>();
-builder.Services.AddScoped<IPrecioRepository,PrecioRepository>();
+builder.Services.AddScoped<IPrecioRepository, PrecioRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IRuteroRepository, RuteroRepository>();
 builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
+
+builder.Services.AddScoped<IAmovilService, AmovilService>();
+builder.Services.AddScoped<IBancoService, BancoService>();
+builder.Services.AddScoped<ICarteraService, CarteraService>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<IDescuentoService, DescuentoService>();
+builder.Services.AddScoped<IEstadoPedidoService, EstadoPedidoService>();
+builder.Services.AddScoped<IInventarioService, InventarioService>();
+builder.Services.AddScoped<IObsequioService, ObsequioService>();
+builder.Services.AddScoped<IPrecioService, PrecioService>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IRuteroService, RuteroService>();
+builder.Services.AddScoped<IVendedorService, VendedorService>();
 
 
 
