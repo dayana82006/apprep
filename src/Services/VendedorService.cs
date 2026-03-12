@@ -9,7 +9,7 @@ public class VendedorService : IVendedorService
     private readonly IVendedorRepository _repository;
     private readonly ILogger _logger;
 
-    public VendedorService(IVendedorRepository repository, ILogger logger)
+    public VendedorService(IVendedorRepository repository, ILogger<VendedorService> logger)
     {
         _repository = repository;
         _logger = logger;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -6,9 +7,9 @@ namespace AplMovilBexsolucionesApi.Controllers
     [Route("api/[controller]")]
     public class RuterosController : ControllerBase
     {
-        private readonly IRuterosService _service;
+        private readonly IRuteroService _service;
 
-        public RuterosController(IRuterosService service)
+        public RuterosController(IRuteroService service)
         {
             _service = service;
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -6,9 +7,9 @@ namespace AplMovilBexsolucionesApi.Controllers
     [Route("api/[controller]")]
     public class InventariosController : ControllerBase
     {
-        private readonly IInventariosService _service;
+        private readonly IInventarioService _service;
 
-        public InventariosController(IInventariosService service)
+        public InventariosController(IInventarioService service)
         {
             _service = service;
         }
@@ -16,7 +17,7 @@ namespace AplMovilBexsolucionesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.ObtenerInventarios();
+            var result = await _service.ObtenerInventario();
             return Ok(result);
         }
     }

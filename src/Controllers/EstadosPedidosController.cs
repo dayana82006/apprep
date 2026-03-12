@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -6,9 +7,9 @@ namespace AplMovilBexsolucionesApi.Controllers
     [Route("api/[controller]")]
     public class EstadosPedidosController : ControllerBase
     {
-        private readonly IEstadosPedidosService _service;
+        private readonly IEstadoPedidoService _service;
 
-        public EstadosPedidosController(IEstadosPedidosService service)
+        public EstadosPedidosController(IEstadoPedidoService service)
         {
             _service = service;
         }
@@ -16,7 +17,7 @@ namespace AplMovilBexsolucionesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.ObtenerEstadosPedidos();
+            var result = await _service.ObtenerEstadoPedido();
             return Ok(result);
         }
     }

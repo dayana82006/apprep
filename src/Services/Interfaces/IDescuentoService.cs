@@ -1,6 +1,6 @@
 ﻿using AplMovilBexsolucionesApi.Models.DTOs;
 
-namespace AplMovilBexSolucionesApi.Services.Interfaces
+namespace AplMovilBexsolucionesApi.Services.Interfaces
 {
     public interface IDescuentoService
     {

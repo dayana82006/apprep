@@ -4,7 +4,7 @@ using AplMovilBexsolucionesApi.Models.DTOs;
 
 namespace AplMovilBexsolucionesApi.Services;
 
-public class ObsequioService
+public class ObsequioService : IObsequioService
 {
 
     private readonly IObsequioRepository _repository;

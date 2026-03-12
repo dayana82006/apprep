@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -6,9 +7,9 @@ namespace AplMovilBexsolucionesApi.Controllers
     [Route("api/[controller]")]
     public class PreciosController : ControllerBase
     {
-        private readonly IPreciosService _service;
+        private readonly IPrecioService _service;
 
-        public PreciosController(IPreciosService service)
+        public PreciosController(IPrecioService service)
         {
             _service = service;
         }

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using AplMovilBexsolucionesApi.Services.Interfaces;
 namespace AplMovilBexsolucionesApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class VendedoresController : ControllerBase
     {
-        private readonly IVendedoresService _service;
+        private readonly IVendedorService _service;
 
-        public VendedoresController(IVendedoresService service)
+        public VendedoresController(IVendedorService service)
         {
             _service = service;
         }
@@ -16,7 +16,7 @@ namespace AplMovilBexsolucionesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.ObtenerVendedores();
+            var result = await _service.ObtenerVendedor();
             return Ok(result);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {

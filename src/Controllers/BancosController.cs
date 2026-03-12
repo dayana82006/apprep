@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -6,9 +7,9 @@ namespace AplMovilBexsolucionesApi.Controllers
     [Route("api/[controller]")]
     public class BancosController : ControllerBase
     {
-        private readonly IBancosService _service;
+        private readonly IBancoService _service;
 
-        public BancosController(IBancosService service)
+        public BancosController(IBancoService service)
         {
             _service = service;
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -16,7 +17,7 @@ namespace AplMovilBexsolucionesApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _service.ObtenerAmovil();
+            var result = await _service.GetAmovil();
             return Ok(result);
         }
     }

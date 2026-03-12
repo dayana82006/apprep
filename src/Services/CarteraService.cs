@@ -10,7 +10,7 @@ public class CarteraService : ICarteraService
     private readonly ICarteraRepository _repository;
     private readonly ILogger _logger;
 
-    public CarteraService(ICarteraRepository repository, ILogger logger)
+    public CarteraService(ICarteraRepository repository, ILogger<CarteraService> logger)
     {
         _repository = repository;
         _logger = logger;

@@ -1,9 +1,8 @@
-using apl_movil_bexsoluciones_api.Services.Interfaces;
+using AplMovilBexsolucionesApi.Services.Interfaces;
 using AplMovilBexsolucionesApi.Data;
 using AplMovilBexsolucionesApi.Repositories;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
 using AplMovilBexsolucionesApi.Services;
-using AplMovilBexsolucionesApi.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +26,6 @@ builder.Services.AddScoped<IPrecioRepository, PrecioRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IRuteroRepository, RuteroRepository>();
 builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
-
 builder.Services.AddScoped<IAmovilService, AmovilService>();
 builder.Services.AddScoped<IBancoService, BancoService>();
 builder.Services.AddScoped<ICarteraService, CarteraService>();
