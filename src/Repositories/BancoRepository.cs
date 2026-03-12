@@ -12,7 +12,7 @@ namespace AplMovilBexsolucionesApi.Repositories
 
         public BancoRepository(DapperContext context, ILogger<BancoRepository> logger)
         {
-            _context = context;s
+            _context = context;
             _logger = logger;
         }
 
