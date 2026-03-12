@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IClienteRepository
 {
-
+    Task<List<ClienteDto>> GetAllClientes();
 }

@@ -4,5 +4,6 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IAmovilRepository
 {
-    Task<List<AmovilDto>>
+    Task<List<AmovilDto>>GetAmovil();
+    Task<List<string>> GetAmovilPipe();
 }

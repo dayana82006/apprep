@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IRuteroRepository
 {
-
+    Task<List<RuteroDto>> GetAllRutero();
 }

@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IInventarioRepository
 {
-
+    Task<List<InventarioDto>> GetAll();
 }

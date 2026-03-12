@@ -4,5 +4,5 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IDescuentoRepository
 {
-
+    Task<List<DescuentoDto>> GetAllDescuento();
 }
