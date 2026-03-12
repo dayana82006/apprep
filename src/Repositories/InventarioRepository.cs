@@ -19,12 +19,17 @@ public class InventarioRepository : IInventarioRepository
     public async Task<List<InventarioDto>> GetAll(int numpag)
     {
 
-        const string sql = @"SELECT 
-                            BodegaId AS codbodega, 
-                            null AS iva,
-                            ProductoId AS codproducto,
-                            Existencia AS cantidadinventario
-                            FROM ProductosBodegas";
+        const string sql = @"
+
+          SELECT 
+            BodegaId AS codbodega, 
+            T2.Valor  AS iva,
+            T.ProductoId AS codproducto,
+            Existencia AS cantidadinventario
+            FROM ProductosBodegas	T 
+            INNER JOIN DBO.Productos T1 ON ( T.ProductoId=T1.ProductoId ) 
+            INNER JOIN dbo.Ivas T2 ON ( T2.IvaId = T1.IvaVentaId )
+";
 
         using var connection = _contex.CreateConnection();
         _logger.LogInformation("Consultando inventario");
