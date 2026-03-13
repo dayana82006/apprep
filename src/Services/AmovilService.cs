@@ -17,6 +17,7 @@ public class AmovilService : IAmovilService
 
     public async Task<IEnumerable<AmovilDto>> GetAmovil(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAmovil(numpag);
         return data;
     }

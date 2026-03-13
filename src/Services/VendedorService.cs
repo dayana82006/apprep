@@ -17,6 +17,7 @@ public class VendedorService : IVendedorService
 
     public async Task<IEnumerable<VendedorDto>>ObtenerVendedor(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         return await _repository.GetAllVendedor(numpag);
     }
 }

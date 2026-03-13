@@ -16,6 +16,7 @@ public class RuteroService : IRuteroService
     }
     public async Task<IEnumerable<RuteroDto>> ObtenerRuteros(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAllRutero(numpag);
         return data;
     }

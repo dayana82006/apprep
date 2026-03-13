@@ -17,6 +17,7 @@ public class EstadoPedidoService : IEstadoPedidoService
     }
     public async Task<IEnumerable<EstadoPedidoDto>> ObtenerEstadoPedido(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAll(numpag);
         return data;
     }

@@ -17,6 +17,7 @@ public class ClienteService : IClienteService
     }
     public async Task<IEnumerable<ClienteDto>> ObtenerClientes(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAllClientes(numpag);
         return data;
     }

@@ -17,6 +17,7 @@ public class ProductoService : IProductoService
     }
     async Task<IEnumerable<ProductoDto>> IProductoService.ObtenerProductos(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAllProducto(numpag);
         return data;
     }

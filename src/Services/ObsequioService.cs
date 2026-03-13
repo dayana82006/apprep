@@ -17,6 +17,7 @@ public class ObsequioService : IObsequioService
     }
     public async Task<IEnumerable<ObsequioDto>> ObtenerObsequios(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAllObsequio(numpag);
         return data;
     }

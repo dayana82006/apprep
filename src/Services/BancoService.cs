@@ -17,6 +17,7 @@ public class BancoService : IBancoService
     }
     public async Task<IEnumerable<BancoDto>> ObtenerBancos(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetBanco(numpag);
         return data;
     }

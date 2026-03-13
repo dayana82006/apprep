@@ -17,6 +17,7 @@ public class PrecioService : IPrecioService
     }
      async Task<IEnumerable<PrecioDto>> IPrecioService.ObtenerPrecios(int numpag)
     {
+        if (numpag <= 0) { numpag = 1; }
         var data = await _repository.GetAllPrecio(numpag);
         return data;
     }

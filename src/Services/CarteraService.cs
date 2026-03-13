@@ -17,6 +17,7 @@ public class CarteraService : ICarteraService
     }
     public async Task<IEnumerable<CarteraDto>> ObtenerCartera(int numpag)
     {
+        if (numpag <= 0){numpag = 1;};
         var data = await _repository.GetAllCartera(numpag);
         return data;
     }
