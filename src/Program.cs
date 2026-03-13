@@ -1,40 +1,42 @@
-using AplMovilBexsolucionesApi.Services.Interfaces;
+using AplMovilBexsoluciones.Middleware;
 using AplMovilBexsolucionesApi.Data;
 using AplMovilBexsolucionesApi.Repositories;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
 using AplMovilBexsolucionesApi.Services;
+using AplMovilBexsolucionesApi.Services.Interfaces;
+using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddSwaggerGen(static options =>
 {
-    options.SwaggerDoc("v1", new global::Microsoft.OpenApi.Models.OpenApiInfo
+    options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "API Bexsoluciones",
         Version = "v1"
     });
 
-    options.AddSecurityDefinition("ApiKey", new global::Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    options.AddSecurityDefinition("ApiKey", securityScheme: new OpenApiSecurityScheme
     {
         Name = "X-API-KEY",
-        In = global::Microsoft.OpenApi.Models.ParameterLocation.Header,
-        Type = global::Microsoft.OpenApi.Models.SecuritySchemeType.ApiKey,
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
         Description = "Ingresa tu API Key"
     });
 
-    options.AddSecurityRequirement(new global::Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
-            new global::Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            new OpenApiSecurityScheme
             {
-                Reference = new global::Microsoft.OpenApi.Models.OpenApiReference
+                Reference = new OpenApiReference
                 {
-                    Type = global::Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Type = ReferenceType.SecurityScheme,
                     Id = "ApiKey"
                 }
             },
@@ -43,6 +45,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+#region Inyecciones
 builder.Services.AddSingleton<SqliteContext>();
 builder.Services.AddScoped<DapperContext>();
 
@@ -70,14 +73,14 @@ builder.Services.AddScoped<IPrecioService, PrecioService>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IRuteroService, RuteroService>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
-
+#endregion
 
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -85,7 +88,7 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty;
     });
 }
-
+app.UseMiddleware<ApiKeyMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
