@@ -29,7 +29,7 @@ public class PrecioRepository : IPrecioRepository
                             WHERE SucursalId=1
                             ORDER BY ProductoId
                             OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
-                            FETCH NEXT @RowsPerPage ROWS ONLY""
+                            FETCH NEXT @RowsPerPage ROWS ONLY
 ";
 
         using var connection = _context.CreateConnection();

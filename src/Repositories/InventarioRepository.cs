@@ -20,15 +20,20 @@ public class InventarioRepository : IInventarioRepository
     {
 
         const string sql = @"
+                            DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres mostrar
+                            DECLARE @RowsPerPage INT = 20; -- Cantidad de filas por página
 
-          SELECT 
-            BodegaId AS codbodega, 
-            T2.Valor  AS iva,
-            T.ProductoId AS codproducto,
-            Existencia AS cantidadinventario
-            FROM ProductosBodegas	T 
-            INNER JOIN DBO.Productos T1 ON ( T.ProductoId=T1.ProductoId ) 
-            INNER JOIN dbo.Ivas T2 ON ( T2.IvaId = T1.IvaVentaId )
+                            SELECT 
+                                BodegaId AS codbodega, 
+                                T2.Valor AS iva,
+                                T.ProductoId AS codproducto,
+                                Existencia AS cantidadinventario
+                            FROM ProductosBodegas T
+                            INNER JOIN dbo.Productos T1 ON T.ProductoId = T1.ProductoId
+                            INNER JOIN dbo.Ivas T2 ON T2.IvaId = T1.IvaVentaId
+                            ORDER BY T.ProductoId
+                            OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
+                            FETCH NEXT @RowsPerPage ROWS ONLY;
 ";
 
         using var connection = _contex.CreateConnection();

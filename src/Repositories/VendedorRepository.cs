@@ -17,7 +17,24 @@ public class VendedorRepository : IVendedorRepository
     }
     public async Task<List<VendedorDto>> GetAllVendedor(int numpag)
     {
-        const string sql = @"SELECT * FROM Vendedor";
+        const string sql = @"
+        DECLARE @PageNumber INT = @numpag; 
+        DECLARE @RowsPerPage INT = 20; 
+
+        SELECT
+            1 AS numerocompania,
+            T1.PersonaId AS codvendedor,
+            '' AS centrooperacion,
+            T1.Codigo AS prefijo,
+            T.NombreCompleto AS descripcion,
+            '' AS centrocostos,
+            '' AS Clasificación
+        FROM dbo.Personas T
+        INNER JOIN dbo.Vendedores T1 ON T.PersonaId = T1.PersonaId
+        ORDER BY T1.PersonaId
+        OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
+        FETCH NEXT @RowsPerPage ROWS ONLY;
+";
 
         using var connection = _context.CreateConnection();
 

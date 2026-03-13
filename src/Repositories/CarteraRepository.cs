@@ -24,10 +24,10 @@ public class CarteraRepository : ICarteraRepository
                                     CASE WHEN  T1.TipoDeDocumentoId = 2 THEN  DigitoDeChequeo ELSE '' END  AS dv,
                                  '' AS succliente,
 	                             '' AS prefijo,
-	                             T.NoDocumento,
-	                             T.FechaDocumento,
-	                             T.FechaVencimiento,
-	                             T.TotalSaldo
+	                             T.NoDocumento AS documento ,
+	                             T.FechaDocumento AS fecmov,
+	                             T.FechaVencimiento AS fechavenci,
+	                             T.TotalSaldo AS valor
                             FROM DBO.PersonasCuentaXCobrar T 
                             INNER JOIN DBO.Personas T1 ON ( T.PersonaId=T1.PersonaId ) 
                             WHERE T.Estado=1
