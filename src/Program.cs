@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(static options =>
         Version = "v1",
         Contact = new OpenApiContact()
         {
-            Name = "GRUPO APL INGENIEROA LTDA.",
+            Name = "GRUPO APL INGENIEROS LTDA.",
             Email ="sistemas@apl.com.co",
             Url= new Uri("https://apl.com.co")
         },
