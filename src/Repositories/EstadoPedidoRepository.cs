@@ -19,7 +19,7 @@ public class EstadoPedidoRepository : IEstadoPedidoRepository
 
     public async Task<List<EstadoPedidoDto>> GetAll(int numpag)
     {
-        const string sql = @"SELECT * FROM estado_pedido";
+        const string sql = @"";
 
         using var connection = _context.CreateConnection();
 

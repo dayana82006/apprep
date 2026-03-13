@@ -22,7 +22,7 @@ public class RuteroRepository : IRuteroRepository
 
     public async Task<List<RuteroDto>> GetAllRutero(int numpag)
     {
-        const string sql = @"SELECT * FROM Rutero";
+        const string sql = @"";
 
         using var connection = _context.CreateConnection();
 

@@ -5,6 +5,8 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>apl_movil_bexsoluciones_api</RootNamespace>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
 	</PropertyGroup>
 
 	<ItemGroup>

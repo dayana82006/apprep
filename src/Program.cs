@@ -6,6 +6,7 @@ using AplMovilBexsolucionesApi.Services;
 using AplMovilBexsolucionesApi.Services.Interfaces;
 using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,17 @@ builder.Services.AddSwaggerGen(static options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "API Bexsoluciones",
-        Version = "v1"
+        Version = "v1",
+        Contact = new OpenApiContact()
+        {
+            Name = "GRUPO APL INGENIEROA LTDA.",
+            Email ="sistemas@apl.com.co",
+            Url= new Uri("https://apl.com.co")
+        },
+        Description = @"Esta API es el núcleo de integración para 
+        la sincronización de datos en tiempo real entre el sistema central y la aplicación móvil.
+",
+       
     });
 
     options.AddSecurityDefinition("ApiKey", securityScheme: new OpenApiSecurityScheme
@@ -43,6 +54,10 @@ builder.Services.AddSwaggerGen(static options =>
             Array.Empty<string>()
         }
     });
+
+    // using System.Reflection;
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
 #region Inyecciones
