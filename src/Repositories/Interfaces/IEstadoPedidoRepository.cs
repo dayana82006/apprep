@@ -4,5 +4,6 @@ namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
 
 public interface IEstadoPedidoRepository
 {
-    Task<List<EstadoPedidoDto>> GetAll(int numpag);
+    Task<List<EstadoPedidoDto>> GetAllEstados(int numpag);
+    Task<List<EstadoPedidoDto>> GuardarPedido(RecPedidoDto pedido);
 }

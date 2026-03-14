@@ -1,4 +1,5 @@
 ﻿using AplMovilBexsolucionesApi.Models.DTOs;
+using AplMovilBexsolucionesApi.Services;
 using AplMovilBexsolucionesApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -10,6 +11,7 @@ namespace AplMovilBexsolucionesApi.Controllers
     public class EstadosPedidosController : ControllerBase
     {
         private readonly IEstadoPedidoService _service;
+
 
         public EstadosPedidosController(IEstadoPedidoService service)
         {
@@ -37,6 +39,14 @@ namespace AplMovilBexsolucionesApi.Controllers
             return StatusCode((int)HttpStatusCode.NotImplemented);
             var result = await _service.ObtenerEstadoPedido(numpag);
             return Ok(result);
+        }
+        [HttpPost]
+        [HttpPost]
+        public async Task<IActionResult> RecibirPedido([FromBody] RecPedidoDto pedido)
+        {
+            await _service.GuardarPedido(pedido);
+
+            return Ok();
         }
     }
 }

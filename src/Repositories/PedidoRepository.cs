@@ -6,18 +6,18 @@ using Dapper;
 
 namespace AplMovilBexsolucionesApi.Repositories;
 
-public class EstadoPedidoRepository : IEstadoPedidoRepository
+public class PedidoRepository : IEstadoPedidoRepository
 {
     public readonly DapperContext _context;
-    public readonly ILogger<EstadoPedidoRepository> _logger;
+    public readonly ILogger<PedidoRepository> _logger;
 
-    public EstadoPedidoRepository(DapperContext context, ILogger<EstadoPedidoRepository> logger)
+    public PedidoRepository(DapperContext context, ILogger<PedidoRepository> logger)
     {
         _context = context;
         _logger = logger;
     }
 
-    public async Task<List<EstadoPedidoDto>> GetAll(int numpag)
+    public async Task<List<EstadoPedidoDto>> GetAllEstados(int numpag)
     {
         const string sql = @"";
 
@@ -26,6 +26,15 @@ public class EstadoPedidoRepository : IEstadoPedidoRepository
         _logger.LogInformation("Consultando estados de pedidos");
 
         var result = await connection.QueryAsync<EstadoPedidoDto>(sql, new { numpag = numpag });
+
+        return result.ToList();
+    }
+    public async Task<List<EstadoPedidoDto>> GuardarPedido(RecPedidoDto pedido)
+    {
+        using var connection = _context.CreateConnection();
+
+       const string sql = @"SELECT 1";
+        var result = await connection.QueryAsync<EstadoPedidoDto>(sql,pedido);
 
         return result.ToList();
     }
