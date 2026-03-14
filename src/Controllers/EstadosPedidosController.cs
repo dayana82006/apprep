@@ -7,7 +7,7 @@ using System.Net;
 namespace AplMovilBexsolucionesApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/")]
     public class EstadosPedidosController : ControllerBase
     {
         private readonly IEstadoPedidoService _service;
@@ -28,7 +28,7 @@ namespace AplMovilBexsolucionesApi.Controllers
         /// <response code="500">Error de servidor</response>
         /// <response code="501">Metodo no implementado</response>
         /// <returns> Un IActionResult que contiene la lista paginada de elementos de Estados de Pedidos para la página especificada. MAXIMO 20 items por pagina.</returns>
-        [HttpGet]
+        [HttpGet("EstadoPedido")]
         [ProducesResponseType(typeof(IEnumerable<EstadoPedidoDto>), 200)]
         [ProducesResponseType(401)]
         [ProducesResponseType(500)]
@@ -40,8 +40,7 @@ namespace AplMovilBexsolucionesApi.Controllers
             var result = await _service.ObtenerEstadoPedido(numpag);
             return Ok(result);
         }
-        [HttpPost]
-        [HttpPost]
+        [HttpPost("Pedido")]
         public async Task<IActionResult> RecibirPedido([FromBody] RecPedidoDto pedido)
         {
             await _service.GuardarPedido(pedido);

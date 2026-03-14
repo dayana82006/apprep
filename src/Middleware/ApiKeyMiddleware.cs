@@ -24,7 +24,8 @@ namespace AplMovilBexsoluciones.Middleware
           
             if (path.StartsWithSegments("/swagger") ||
                 path.StartsWithSegments("/openapi") ||
-                path.StartsWithSegments("/scalar")) 
+                path.StartsWithSegments("/scalar") ||
+                path.StartsWithSegments("/watchdog")) 
             {
                 await _next(context);
                 return;
