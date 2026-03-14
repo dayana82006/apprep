@@ -40,6 +40,12 @@ namespace AplMovilBexsolucionesApi.Controllers
             var result = await _service.ObtenerEstadoPedido(numpag);
             return Ok(result);
         }
+        /// <summary>
+        /// Envía un pedido al sistema para su procesamiento. 
+        /// </summary>
+        ///  /// <response code="200">Retorna un listado de items</response>
+        /// <response code="400">Sintaxis No válida.</response>
+        /// <response code="500">Error de servidor</response>
         [HttpPost("Pedido")]
         public async Task<IActionResult> RecibirPedido([FromBody] RecPedidoDto pedido)
         {
