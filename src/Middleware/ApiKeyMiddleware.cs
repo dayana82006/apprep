@@ -20,12 +20,12 @@ namespace AplMovilBexsoluciones.Middleware
         public async Task InvokeAsync(HttpContext context)
         {
             var path = context.Request.Path;
-
           
             if (path.StartsWithSegments("/swagger") ||
                 path.StartsWithSegments("/openapi") ||
                 path.StartsWithSegments("/scalar") ||
-                path.StartsWithSegments("/watchdog")) 
+                path.StartsWithSegments("/watchdog")||
+                path.StartsWithSegments("/WTCHDG")) 
             {
                 await _next(context);
                 return;
