@@ -121,24 +121,18 @@ builder.Services.AddScoped<IVendedorService, VendedorService>();
 
 #endregion
 
-
 var app = builder.Build();
 
-
-#region Swagger UI
-
+#region Swagger
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "BEXSOLUCIONES API");
     c.RoutePrefix = string.Empty;
 });
-
 #endregion
 
-
-#region WatchDog Middleware
-
+#region WatchDog Middleware (PRIMERO)
 app.UseWatchDogExceptionLogger();
 
 app.UseWatchDog(opt =>
@@ -146,25 +140,27 @@ app.UseWatchDog(opt =>
     opt.WatchPageUsername = "admin";
     opt.WatchPagePassword = "1234";
 });
-
 #endregion
 
-
-#region Middlewares
-
+#region Middlewares personalizados
 app.UseMiddleware<ApiKeyMiddleware>();
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
-
 #endregion
 
+#region Otros middlewares
+app.UseHttpsRedirection();
+
+app.UseCors(policy =>
+{
+    policy.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader();
+});
+
+app.UseAuthorization();
+#endregion
 
 #region Endpoints
-
 app.MapControllers();
-
 #endregion
-
 
 app.Run();
