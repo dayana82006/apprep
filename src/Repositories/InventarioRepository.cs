@@ -21,7 +21,7 @@ public class InventarioRepository : IInventarioRepository
 
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres mostrar
-                            DECLARE @RowsPerPage INT = 20; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
 
                             SELECT 
                                 BodegaId AS codbodega, 
@@ -31,6 +31,7 @@ public class InventarioRepository : IInventarioRepository
                             FROM ProductosBodegas T
                             INNER JOIN dbo.Productos T1 ON T.ProductoId = T1.ProductoId
                             INNER JOIN dbo.Ivas T2 ON T2.IvaId = T1.IvaVentaId
+                            WHERE ProductoId IN ( SELECT DISTINCT ProductoId FROM dbo.ProductosCaracteristicasSucursal WHERE Estado=1 )
                             ORDER BY T.ProductoId
                             OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
                             FETCH NEXT @RowsPerPage ROWS ONLY;

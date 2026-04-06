@@ -20,13 +20,13 @@ public class PrecioRepository : IPrecioRepository
     {
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres
-                            DECLARE @RowsPerPage INT = 20; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
                             SELECT  
 	                        1 AS codlistaprecio,
                             ProductoId AS codproducto,
                             PrecioPublico1 AS valorprecio
                             FROM DBO.ProductosPrecios
-                            WHERE SucursalId=1
+                            WHERE SucursalId=1 AND ProductoId IN ( SELECT DISTINCT ProductoId FROM dbo.ProductosCaracteristicasSucursal WHERE Estado=1 )
                             ORDER BY ProductoId
                             OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
                             FETCH NEXT @RowsPerPage ROWS ONLY

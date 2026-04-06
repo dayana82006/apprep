@@ -19,7 +19,7 @@ public class VendedorRepository : IVendedorRepository
     {
         const string sql = @"
         DECLARE @PageNumber INT = @numpag; 
-        DECLARE @RowsPerPage INT = 20; 
+        DECLARE @RowsPerPage INT = 500; 
 
         SELECT
             1 AS numerocompania,
@@ -31,6 +31,7 @@ public class VendedorRepository : IVendedorRepository
             '' AS Clasificación
         FROM dbo.Personas T
         INNER JOIN dbo.Vendedores T1 ON T.PersonaId = T1.PersonaId
+        WHERE T1.Estado=1
         ORDER BY T1.PersonaId
         OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
         FETCH NEXT @RowsPerPage ROWS ONLY;

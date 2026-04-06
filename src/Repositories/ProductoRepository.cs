@@ -20,13 +20,15 @@ public class ProductoRepository : IProductoRepository
     {
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres
-                            DECLARE @RowsPerPage INT = 20; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
 
                             SELECT 
                                 T.ProductoId AS codigo, 
                                 DescripcionLarga AS descripcion, 
                                 T2.Prefijo AS codunidademp,
                                 T1.Peso AS peso,
+                                P.PersonaId As codProveedor,
+                                P.NombreCompleto AS nonProveedor,
                                 T.IvaVentaId AS IVA,
                                 1 AS UnidadVenta,
                                 T3.Descripcion AS Segmento,
@@ -36,6 +38,8 @@ public class ProductoRepository : IProductoRepository
                             INNER JOIN UnidadesDeMedida T2 ON T.UnidadDeMedidaId = T2.UnidadDeMedidaId
                             INNER JOIN Familia1 T3 ON T3.Familia1Id = T.Familia1Id
                             INNER JOIN Familia2 T4 ON T4.Familia2Id = T.Familia2Id
+                            WHERE T.ProductoId IN ( SELECT DISTINCT  ProductoId FROM dbo.ProductosCaracteristicasSucursal WHERE Estado=1 )
+
                             ORDER BY T.ProductoId
                             OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
                             FETCH NEXT @RowsPerPage ROWS ONLY;

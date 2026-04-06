@@ -19,7 +19,7 @@ public class ClienteRepository : IClienteRepository
     {
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres
-                            DECLARE @RowsPerPage INT = 20; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
 
                                 SELECT 
                                     NoIdentificacion AS codigo,
