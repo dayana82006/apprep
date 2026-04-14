@@ -31,7 +31,7 @@ builder.Services.AddSwaggerGen(options =>
         en tiempo real entre el sistema central y la aplicación móvil.",
         Contact = new OpenApiContact
         {
-            Name = "GRUPO APL INGENIEROS LTDA.",
+            Name = "GRUPO APL INGENIERIA LTDA.",
             Email = "sistemas@apl.com.co",
             Url = new Uri("https://apl.com.co")
         }
