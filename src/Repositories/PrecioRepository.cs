@@ -20,7 +20,7 @@ public class PrecioRepository : IPrecioRepository
     {
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres
-                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 10000; -- Cantidad de filas por página
                             SELECT  
 	                        1 AS codlistaprecio,
                             ProductoId AS codproducto,

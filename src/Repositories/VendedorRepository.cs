@@ -19,7 +19,7 @@ public class VendedorRepository : IVendedorRepository
     {
         const string sql = @"
         DECLARE @PageNumber INT = @numpag; 
-        DECLARE @RowsPerPage INT = 500; 
+        DECLARE @RowsPerPage INT = 10000; 
 
         SELECT
             1 AS numerocompania,

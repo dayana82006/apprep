@@ -19,7 +19,7 @@ public class CarteraRepository : ICarteraRepository
     {
         const string sql = @"
                             DECLARE @PageNumber INT = @numpag;  -- Número de página que quieres
-                            DECLARE @RowsPerPage INT = 500; -- Cantidad de filas por página
+                            DECLARE @RowsPerPage INT = 10000; -- Cantidad de filas por página
                             SELECT   T1.NoIdentificacion AS nitcliente,
                                 CASE WHEN  T1.TipoDeDocumentoId = 2 THEN  DigitoDeChequeo ELSE '' END  AS dv,
                              '' AS succliente,

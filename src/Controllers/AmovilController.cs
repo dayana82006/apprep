@@ -20,12 +20,12 @@ namespace AplMovilBexsolucionesApi.Controllers
         /// <summary>
         /// Consulta de la lista de items disponibles para Amovil.
         /// </summary>
-        /// <param name="numpag">Numero entero correspondiente a la pagina a consultar.  MAXIMO 500 items por pagina.</param>
+        /// <param name="numpag">Numero entero correspondiente a la pagina a consultar. MAXIMO 10000 items por pagina.</param>
         /// <response code="200">Retorna un listado de items</response>
         /// <response code="401">apikey no encontrada o invalidada.</response>
         /// <response code="500">Error de servidor</response>
         /// <response code="501">Metodo no implementado</response>
-        /// <returns> Un IActionResult que contiene la lista paginada de elementos de Amovil para la página especificada. MAXIMO 500 items por pagina.</returns>
+        /// <returns> Un IActionResult que contiene la lista paginada de elementos de Amovil para la página especificada.MAXIMO 10000 items por pagina.</returns>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<AmovilDto>), 200)]
         [ProducesResponseType(401)]

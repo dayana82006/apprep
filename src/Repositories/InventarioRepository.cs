@@ -21,7 +21,7 @@ public class InventarioRepository : IInventarioRepository
 
         const string sql = @"
                           DECLARE @PageNumber INT = @numpag;
-                            DECLARE @RowsPerPage INT = 500;
+                            DECLARE @RowsPerPage INT = 1000000;
 
                             SELECT 
                                 T.BodegaId AS codbodega, 
