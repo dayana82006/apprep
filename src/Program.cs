@@ -118,6 +118,8 @@ builder.Services.AddScoped<IPrecioService, PrecioService>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<IRuteroService, RuteroService>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
+builder.Services.AddScoped<IBodegaRepository, BodegaRepository>();
+builder.Services.AddScoped<IBodegaService, BodegaService>();
 
 #endregion
 
