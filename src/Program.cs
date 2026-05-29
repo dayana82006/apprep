@@ -125,6 +125,10 @@ builder.Services.AddScoped<IBodegaService, BodegaService>();
 
 var app = builder.Build();
 
+#region Middlewares personalizados (PRIMERO: debe validar antes del enrutamiento de WatchDog)
+app.UseMiddleware<ApiKeyMiddleware>();
+#endregion
+
 #region Swagger
 app.UseSwagger();
 app.UseSwaggerUI(c =>
@@ -142,10 +146,6 @@ app.UseWatchDog(opt =>
     opt.WatchPageUsername = "admin";
     opt.WatchPagePassword = "1234";
 });
-#endregion
-
-#region Middlewares personalizados
-app.UseMiddleware<ApiKeyMiddleware>();
 #endregion
 
 #region Otros middlewares
