@@ -1,4 +1,4 @@
-using AplMovilBexsoluciones.Middleware;
+using AplMovilBexsolucionesApi.Attributes;
 using AplMovilBexsolucionesApi.Data;
 using AplMovilBexsolucionesApi.Repositories;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
@@ -145,7 +145,7 @@ app.UseWatchDog(opt =>
 #endregion
 
 #region Middlewares personalizados
-app.UseMiddleware<ApiKeyMiddleware>();
+app.UseMiddleware<IMiddleware>();
 #endregion
 
 #region Otros middlewares

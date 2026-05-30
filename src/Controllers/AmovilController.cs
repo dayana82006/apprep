@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AplMovilBexsolucionesApi.Services.Interfaces;
+﻿using AplMovilBexsolucionesApi.Attributes;
 using AplMovilBexsolucionesApi.Models.DTOs;
+using AplMovilBexsolucionesApi.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
+    [ApiKey]
     [ApiController]
     [Route("api/[controller]")]
     public class AmovilController : ControllerBase

@@ -1,4 +1,5 @@
-﻿using AplMovilBexsolucionesApi.Models.DTOs;
+﻿using AplMovilBexsolucionesApi.Attributes;
+using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Services;
 using AplMovilBexsolucionesApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using System.Net;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
+    [ApiKey]
     [ApiController]
     [Route("api/")]
     public class EstadosPedidosController : ControllerBase
