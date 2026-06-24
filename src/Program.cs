@@ -100,12 +100,13 @@ builder.Services.AddScoped<IPrecioRepository, PrecioRepository>();
 builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
 builder.Services.AddScoped<IRuteroRepository, RuteroRepository>();
 builder.Services.AddScoped<IVendedorRepository, VendedorRepository>();
+builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
 
 #endregion
 
 
 #region Services
-
+builder.Services.AddScoped<IFacturaService, FacturaService>();
 builder.Services.AddScoped<IAmovilService, AmovilService>();
 builder.Services.AddScoped<IBancoService, BancoService>();
 builder.Services.AddScoped<ICarteraService, CarteraService>();
