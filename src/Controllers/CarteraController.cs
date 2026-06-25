@@ -35,8 +35,14 @@ namespace AplMovilBexsolucionesApi.Controllers
         [ProducesResponseType(501)]
         public async Task<IActionResult> Get(int numpag)
         {
-   
+
             var result = await _service.ObtenerCartera(numpag);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
             return Ok(result);
         }
     }

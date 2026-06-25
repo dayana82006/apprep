@@ -1,6 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
@@ -26,6 +27,11 @@ namespace AplMovilBexsolucionesApi.Controllers
         /// <response code="501">Metodo no implementado</response>
         /// <returns> Un IActionResult que contiene la lista paginada de elementos de Clientes para la página especificada. MAXIMO 10000 items por pagina.</returns>
         [HttpGet("ObtenerFacturas/")]
+
+        [ProducesResponseType(typeof(IEnumerable<FacturasDto>), 200)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(500)]
+        [ProducesResponseType(501)]
         public async Task<IActionResult> GetFacturas(int numpag)
         {
 

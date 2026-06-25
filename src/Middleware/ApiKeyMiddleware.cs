@@ -10,7 +10,7 @@ namespace AplMovilBexsolucionesApi.Attributes
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            // 1. Verificar si viene el Header
+           
             if (!context.HttpContext.Request.Headers.TryGetValue(APIKEYNAME, out var extractedApiKey))
             {
                 context.Result = new ContentResult()
@@ -21,7 +21,6 @@ namespace AplMovilBexsolucionesApi.Attributes
                 return; // Corta la ejecución
             }
 
-            // 2. Validar el valor de la ApiKey (Ajusta esto a tu lógica, ej. leer de appsettings)
             var configuration = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
             var apiKey = configuration.GetValue<string>("ApiKey");
 
