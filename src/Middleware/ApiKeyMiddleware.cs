@@ -18,7 +18,7 @@ namespace AplMovilBexsolucionesApi.Attributes
                     StatusCode = 401,
                     Content = "ApiKey no proporcionada"
                 };
-                return; // Corta la ejecución
+                return;
             }
 
             var configuration = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
@@ -31,10 +31,10 @@ namespace AplMovilBexsolucionesApi.Attributes
                     StatusCode = 401,
                     Content = "ApiKey inválida"
                 };
-                return; // Corta la ejecución
+                return; 
             }
 
-            await next(); // Si todo está bien, continúa al controlador
+            await next();
         }
     }
 }
