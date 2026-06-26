@@ -1,6 +1,8 @@
-﻿namespace apl_movil_bexsoluciones_api.Repositories.Interfaces
+using AplMovilBexsolucionesApi.Models.DTOs;
+
+namespace AplMovilBexsolucionesApi.Repositories.Interfaces;
+
+public interface IPedidoRepository
 {
-    public interface Interface
-    {
-    }
+    Task<RespuestaPedidoDto> GuardarPedido(RecPedidoDto pedido);
 }

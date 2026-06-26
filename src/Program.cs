@@ -93,7 +93,7 @@ builder.Services.AddScoped<IBancoRepository, BancoRepository>();
 builder.Services.AddScoped<ICarteraRepository, CarteraRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IDescuentoRepository, DescuentoRepository>();
-builder.Services.AddScoped<IEstadoPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IInventarioRepository, InventarioRepository>();
 builder.Services.AddScoped<IObsequioRepository, ObsequioRepository>();
 builder.Services.AddScoped<IPrecioRepository, PrecioRepository>();

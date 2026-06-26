@@ -1,10 +1,12 @@
-﻿using AplMovilBexsolucionesApi.Models.DTOs;
+﻿using AplMovilBexsolucionesApi.Attributes;
+using AplMovilBexsolucionesApi.Models.DTOs;
 using AplMovilBexsolucionesApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace AplMovilBexsolucionesApi.Controllers
 {
+    [ApiKey]
     [ApiController]
     [Route("api/[controller]")]
     public class FacturaController : ControllerBase
