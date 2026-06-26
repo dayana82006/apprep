@@ -16,8 +16,8 @@ public class FacturasDto
     public string? city { get; set; }
     public string? state { get; set; }
     public string? observations { get; set; }
-    public DateTime Date { get; set; }
-    public DateTime Date_delivery { get; set; }
+    public DateOnly Date { get; set; }
+    public DateOnly Date_delivery { get; set; }
     public string Codfpagovta { get; set; }
     public int Periodfpagovta { get; set; }
     public string Order_number { get; set; }

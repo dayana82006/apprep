@@ -80,7 +80,8 @@ public class FacturaRepository : IFacturaRepository
                 LEFT JOIN dbo.UnidadesDeMedida T6 ON (T6.UnidadDeMedidaId = T5.UnidadDeMedidaId)  
                 INNER JOIN dbo.ProductosCaracteristicas T7 ON (T7.ProductoId = T5.ProductoId)  
                 INNER JOIN dbo.MovimientosxProcesar T8 ON (T8.NoDocumento = T.NoDocumento AND T8.TipoProceso = 6)  
-                WHERE T8.FechaDeProceso >= '2026-06-01' AND T.TipoDocumentoId = 1  
+                WHERE CAST(t8.FechaDeProceso AS DATE) >= '2026-06-01'
+                AND t.TipoDocumentoId = 1  
                 ORDER BY T.FechaDeSalida, T.Prefijo, T.Consecutivo, T2.ProductoId
                 OFFSET (@PageNumber - 1) * @RowsPerPage ROWS
                 FETCH NEXT @RowsPerPage ROWS ONLY;

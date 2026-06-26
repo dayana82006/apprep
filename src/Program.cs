@@ -4,12 +4,19 @@ using AplMovilBexsolucionesApi.Repositories;
 using AplMovilBexsolucionesApi.Repositories.Interfaces;
 using AplMovilBexsolucionesApi.Services;
 using AplMovilBexsolucionesApi.Services.Interfaces;
+using Dapper;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using WatchDog;
 using WatchDog.src.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
+
+#region Dapper TypeHandlers
+
+SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());
+
+#endregion
 
 #region Servicios base
 
