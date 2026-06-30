@@ -5,7 +5,7 @@ namespace AplMovilBexsolucionesApi.Models.DTOs;
 
 public class FacturasDto
 {
-    public string? condVendedor {  get; set; }
+    public string? codVendedor {  get; set; }
     public string numberCustomer { get; set; } 
     public string codePlace { get; set; }
     public string razonSocial { get; set; }
@@ -22,7 +22,13 @@ public class FacturasDto
     public int Periodfpagovta { get; set; }
     public string Order_number { get; set; }
     public string Type { get; set; }
-
+    public string Coditem { get; set; }
+    public string Name_item { get; set; }
+    public decimal Amount { get; set; }
+    public string Unit_of_measurement { get; set; }
+    public string Name_of_measurement { get; set; }
+    public decimal Price { get; set; }
+    public string Type_item { get; set; }
     public decimal Grand_total { get; set; }
     public decimal? Retencion { get; set; }
     public string Type_of_charge { get; set; }
@@ -31,6 +37,9 @@ public class FacturasDto
     public string Cost_center { get; set; }
     public string Unidneg { get; set; }
     public string Type_transaction { get; set; }
+    public string Rowid { get; set; }
+    public decimal? Weight { get; set; }
+    public decimal? Volumen { get; set; }
     public List<FacturaItemDto> Items { get; set; } = new List<FacturaItemDto>();
 
 }

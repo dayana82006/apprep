@@ -60,7 +60,7 @@ public class FacturaRepository : IFacturaRepository
                     T2.ProductoId AS rowid,
                     T7.Peso AS weight,
                     null AS volumen,
-                    T.TotalSalida AS Grand_total,
+                    T.TotalSalida AS grand_total,
                     ISNULL((SELECT SUM(Valor) FROM dbo.Tesoreria WHERE NoDocumento = t.NoDocumento AND TipoDePago = 12), 0) AS retencion,
                     CASE 
                         WHEN T.Cartera = 1 OR T.Domicilio = 1 THEN 'CREDITO' 
